@@ -1,18 +1,36 @@
-<!-- <form method="post" action="/pizza_orders/:id/edit">
+<form method="post" action="/pizza_orders/<%= @order.id %>">
+
   <label for="first-name">First Name:</label>
-  <input type="text" name="first_name" id="first-name">
+  <input type="text" name="first_name" id="first-name", value = "<%= @order.first_name %>"/>
 
-  <label for="last-name">Last Name:</label>
-  <input type="text" name="last_name" id="last-name">
 
-  <label for="pizza-select">Select a pizza:</label>
-  <select id="pizza-select" name="topping">
-    <option value="Margherita">Margherita</option>
-    <option value="Calzone">Calzone</option>
-  </select>
+    <label for="last-name-field">Last Name:</label>
+    <input
+    type="text"
+    name="last_name"
+    id="last-name-field"
+    value="<%= @order.last_name %>"
+    />
 
-  <label for="quantity">Quantity</label>
-  <input type="number" name="quantity" id="quantity">
+    <label for="pizza-selection">Select a pizza:</label>
+    <select name="topping" id="pizza-selection">
+      <option
+      value="Margherita"
+      <%= "selected" if @order.topping == "Margherita" %>
+      >Margherita</option>
+      <option
+      value="Calzone"
+      <%= "selected" if @order.topping == "Calzone" %>
+      >Calzone</option>
+    </select>
 
-  <input type="submit" value="Order Pizza">
-</form> -->
+    <label for="quantity-field">Quantity:</label>
+    <input
+    type="number"
+    name="quantity"
+    id="quantity-field"
+    value="<%= @order.quantity() %>"
+    />
+
+    <input type='submit' value="Update my order">
+  </form>
