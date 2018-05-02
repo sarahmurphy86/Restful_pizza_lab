@@ -30,6 +30,12 @@ end
 
 
 # UPDATE existing orders
+get '/pizza_orders/:id/edit' do
+  @order = PizzaOrder.find(params[:id])
+  @order.update()
+  redirect to ('pizza_order')
+end
+
 
 
 # DELETE orders
